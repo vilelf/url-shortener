@@ -1,4 +1,5 @@
 import json
+import os
 import re
 from unittest import TestCase, mock
 
@@ -8,6 +9,7 @@ from processor import UrlProcessor
 
 class UrlProcessorTest(TestCase):
     def setUp(self):
+        os.environ['ROOT_URL'] = ''
         self.url_processor = UrlProcessor()
 
     def test_generate_url(self):

@@ -10,6 +10,6 @@ def hello(event, context):
 
 def url_generator(event, context):
     url_processor = UrlProcessor()
-    url = url_processor.generate()
+    url = url_processor.main()
     
     return make_response({'newUrl': url}, 200)

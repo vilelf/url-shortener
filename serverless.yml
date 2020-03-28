@@ -23,6 +23,9 @@ service: url-shortener
 provider:
   name: aws
   runtime: python3.8
+  stage: ${opt:stage, 'dev'}
+  environment:
+    ROOT_URL: ${self:custom.stages.${self:provider.stage}.rootUrl, 'http://localhost:3000'}
 
 # you can overwrite defaults here
 #  stage: dev
@@ -123,3 +126,8 @@ functions:
 #       Value: "Some output value"
 plugins:
   - serverless-offline
+
+custom:
+  stages:
+    dev:
+      rootUrl: ${file(./myConf.yml):rootUrl}
