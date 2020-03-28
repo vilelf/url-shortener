@@ -3,7 +3,11 @@ import random
 import string
 
 
-class UrlProcessor(object):
+class UrlProcessor:
+    def main(self):
+        url = self.generate()
+        return url
+
     def generate(self, size=7):
         letters = string.ascii_lowercase
         numbers = string.digits
