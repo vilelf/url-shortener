@@ -19,6 +19,7 @@ __pycache__/
 .env
 node_modules
 .vscode
+myConf.yml
 
 # Serverless directories
 .serverless
