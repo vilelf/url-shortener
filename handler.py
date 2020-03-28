@@ -1,15 +1,9 @@
-import json
+from processor import UrlProcessor
+from utils import make_response
 
 
-def hello(event, context):
-    body = {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "input": event
-    }
-
-    response = {
-        "statusCode": 200,
-        "body": json.dumps(body)
-    }
-
-    return response
+def url_generator(event, context):
+    url_processor = UrlProcessor()
+    url = url_processor.generate()
+    
+    return make_response({'newUrl': url}, 200)
